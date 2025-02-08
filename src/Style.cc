@@ -1,7 +1,7 @@
 /*fonts*/
 @font-face {
-  font-family: "Hobbiton Brushhand", serif;
-  src: url("src/Hobbiton_Font.ttf") format("truetype");
+  font-family: "Hobbiton Brushhand"; /* Name of the font */
+  src: url("HobbitonBrushhandhobbitonBrush-WygA.ttf") format("truetype"); /* Relative path */
   font-weight: normal;
   font-style: normal;
 }
@@ -15,6 +15,7 @@
   position: relative; /* Change to absolute or relative */
   display: flex;
   justify-content: center;
+  align-items: center;
   animation: center;
   margin: 0 auto; /* Ensure centering */
   left: 0; /* Optional: adjust as needed */
@@ -49,10 +50,9 @@
 /* search form container*/
 .search-form {
   position: relative;
-  top: 320px;
-  left: 50px;
-  grid-column: 1/2;
-  width: 450px;
+  grid-column: 2/2;
+  grid-row:3/3;
+  width: auto;
   height: auto;
   
 }
@@ -60,44 +60,33 @@
 /* search form bar*/
 #search-field {
   font-family: serif;
-  color:rgb(12, 0, 0);
-  background-color: rgb(248, 247, 244, .5);
-  border-radius: 15px;
-  padding: 1px 1px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  color: #ffffff;
+  background-color: rgba(248, 247, 244, 0.3);
+  border: 2px solid rgb(251, 200, 65, 0.6);
+  box-shadow: 0 0 0 1px rgb(251, 200, 65, 0.6);
+  border-radius: 0px;
+  padding: 2px 6px;
   width: 100%;
-  border: 3px solid transparent; /* Make the border transparent to show the gradient */
-  box-shadow: 0 0 15px rgba(179, 177, 175, 0.67), 0 0 20px rgba(158, 158, 155, 0.47); /* Glow effect */
-  background-size: 100%;
-  background-origin: border-box; /* Ensures the gradient is only on the border */
-  background-clip: content-box, border-box;
-
 }
 
 /* search form input*/
 .search-input {
- flex-grow: 1; /* Makes input take up remaining space */
+  flex-grow: 1; /* Makes input take up remaining space */
   height: 25px;
-  background-color: rgba(248, 247, 244, .6);
+  background-color: rgba(248, 247, 244, 0.2);
   border: none;
-  border-radius: 10px;
+  border-radius: 0;
   font-family: "Uncial Antiqua", serif;
   font-size: 16px;
   text-align: center;
-  color:rgb(5, 0, 0);
-  padding: 1px 1px;
+  color: #ffffff;
+  padding: 0 10px;
 }
 
 .search-input:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 15px 5px rgba(251, 200, 65, 0.8); /* Glow effect */
   cursor: pointer;
-  border: 3px solid transparent; /* Make the border transparent to show the gradient */
-  box-shadow: 0 0 15px rgba(204, 108, 11, 0.81), 0 0 20px rgba(165, 165, 50, 0.82); /* Glow effect */
-  background-size: 100%;
-  background-origin: border-box; /* Ensures the gradient is only on the border */
-  background-clip: content-box, border-box;
 }
 
 /* text under search bar that toggles on/off when go button clicked*/
@@ -109,26 +98,9 @@
   font-family: "Uncial Antiqua", serif;
   font-size: 18px;
   position: absolute;
-  margin: auto;
-  top: -10px;
-  left: 480px;
-  background-image: url("https://tse4.mm.bing.net/th?id=OIP.1M6mTHCz8_egl4DrPQAIrwHaHa&pid=Api");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 130%;
-  background-blend-mode: overlay;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #b8860b;
-  border: 3px solid #d4af37;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /*search button spin effect*/
-  animation: spin 2s linear infinite;
-  transition: transform 0.3s ease-in-out;
-}
+  top:10px;
+  left:350px;
+    }
 
 /* search button glow config*/
 .search-button:before {
@@ -151,17 +123,16 @@
 }
 
 .temp {
-  position: absolute;
-  grid-column: 1/1;
-  position: fixed;
-  left: 170px;
-  top: 40px;
+ position: absolute;
+ margin:auto;
+  grid-column: 1/2;
+  grid-row:1/1;
+  font-family: "Uncial Antiqua", serif;
   font-size: 45px;
-  text-align: center;
+  text-align: left;
 }
 
 p #temperature {
-     font-family: "Hobbiton Brushhand", serif;
 }
 .icon {
   height: 60px;
@@ -170,9 +141,9 @@ p #temperature {
   display: flex;
   justify-content: center;
   align-content: center;
-  position: fixed;
-  left: 200px;
-  top: 270px;
+  position: absolute;
+  grid-column: 1/1;
+  grid-row:2/2;
 }
 .info {
   height: 160px;
@@ -181,9 +152,11 @@ p #temperature {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  position: fixed;
-  left: 290px;
-  top: 200px;
+  position: absolute;
+  grid-column: 1/1;
+  grid-row:2/2;
+  left:160px;
+  bottom: 25px;
   font-family: "Uncial Antiqua", serif;
   font-size: 14px;
   font-stretch: expanded;
@@ -202,9 +175,11 @@ p #temperature {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  position: fixed;
-  right: 180px;
-  top: 217px;
+ position: absolute;
+ right:25px;
+ bottom: 15px;
+  grid-column: 3/3;
+  grid-row:2/2;
   font-family: "Uncial Antiqua", serif;
   font-size: 13px;
   font-stretch: expanded;
@@ -222,9 +197,11 @@ p #temperature {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  position: fixed;
-  right: 180px;
-  top: 220px;
+  position: absolute;
+  grid-column: 3/3;
+  grid-row:2/2;
+  right: 25px;
+  bottom: 5px;
   font-family: "Uncial Antiqua", serif;
   font-size: 20px;
   font-stretch: expanded;
@@ -235,16 +212,15 @@ p #temperature {
 }
 
 .date {
-  height: 160px;
-  width: 160px;
-  grid-column: 3/3;
-  display: flex;
+   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  position: fixed;
-  right: 180px;
-  top: 320px;
+  position: absolute;
+  grid-column: 3/3;
+  grid-row:2/2;
+  right: 25px;
+  bottom: 35px;
   font-family: "Uncial Antiqua", serif;
   font-size: 13px;
   font-stretch: expanded;

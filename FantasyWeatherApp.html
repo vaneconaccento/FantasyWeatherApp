@@ -16,10 +16,15 @@
       href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap"
       rel="stylesheet"
     />
-    <link rel="fonts" href="src/HobbitonBrushhandhobbitonBrush-WygA.ttf" />
+    <link rel="hobbit font" href="src\Hobbiton_Font.ttf" />
+    <link rel="elvish font" href="src\Elvish_Font.ttf" />
   </head>
   <body>
     <div class="app-container">
+      <!--video background-->
+      <video autoplay loop muted class="background-video" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+  <source src="your-video-file.mp4" type="video/mp4">
+</video>
       <div class="content-container">
         <div class="search-form">
           <form id="search-field">
@@ -58,8 +63,7 @@
         </div>
         <!--Date-->
         <div class="date">
-          <span id="weekday">Weekday</span>,<span id="month">month</span>
-          <span id="day"> date</span>, <span id="year">year</span>
+          <p></p><span id="weekday">Weekday</span>, <span id="month">month</span> <span id="day"> date</span>, <span id="year">year</span></p>
         </div>
       </div>
     </div>
