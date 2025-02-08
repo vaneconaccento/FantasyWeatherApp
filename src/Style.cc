@@ -1,7 +1,7 @@
 /*fonts*/
 @font-face {
-  font-family: "Hobbiton Brushhand"; /* Name of the font */
-  src: url("HobbitonBrushhandhobbitonBrush-WygA.ttf") format("truetype"); /* Relative path */
+  font-family: "Hobbiton Brushhand", serif;
+  src: url("src/Hobbiton_Font.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -54,41 +54,50 @@
   grid-column: 1/2;
   width: 450px;
   height: auto;
+  
 }
 
 /* search form bar*/
 #search-field {
   font-family: serif;
-  color: #ffffff;
-  background-color: rgba(248, 247, 244, 0.3);
-  border: 2px solid rgb(251, 200, 65, 0.6);
-  box-shadow: 0 0 0 1px rgb(251, 200, 65, 0.6);
-  border-radius: 0px;
-  padding: 2px 6px;
+  color:rgb(12, 0, 0);
+  background-color: rgb(248, 247, 244, .5);
+  border-radius: 15px;
+  padding: 1px 1px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
+  border: 3px solid transparent; /* Make the border transparent to show the gradient */
+  box-shadow: 0 0 15px rgba(179, 177, 175, 0.67), 0 0 20px rgba(158, 158, 155, 0.47); /* Glow effect */
+  background-size: 100%;
+  background-origin: border-box; /* Ensures the gradient is only on the border */
+  background-clip: content-box, border-box;
+
 }
 
 /* search form input*/
 .search-input {
-  flex-grow: 1; /* Makes input take up remaining space */
+ flex-grow: 1; /* Makes input take up remaining space */
   height: 25px;
-  background-color: rgba(248, 247, 244, 0.2);
+  background-color: rgba(248, 247, 244, .6);
   border: none;
-  border-radius: 0;
+  border-radius: 10px;
   font-family: "Uncial Antiqua", serif;
   font-size: 16px;
   text-align: center;
-  color: #ffffff;
-  padding: 0 10px;
+  color:rgb(5, 0, 0);
+  padding: 1px 1px;
 }
 
 .search-input:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px 5px rgba(251, 200, 65, 0.8); /* Glow effect */
   cursor: pointer;
+  border: 3px solid transparent; /* Make the border transparent to show the gradient */
+  box-shadow: 0 0 15px rgba(204, 108, 11, 0.81), 0 0 20px rgba(165, 165, 50, 0.82); /* Glow effect */
+  background-size: 100%;
+  background-origin: border-box; /* Ensures the gradient is only on the border */
+  background-clip: content-box, border-box;
 }
 
 /* text under search bar that toggles on/off when go button clicked*/
@@ -102,7 +111,7 @@
   position: absolute;
   margin: auto;
   top: -10px;
-  left: 270px;
+  left: 480px;
   background-image: url("https://tse4.mm.bing.net/th?id=OIP.1M6mTHCz8_egl4DrPQAIrwHaHa&pid=Api");
   background-position: center;
   background-repeat: no-repeat;
@@ -147,12 +156,12 @@
   position: fixed;
   left: 170px;
   top: 40px;
-  font-family: "Uncial Antiqua", serif;
   font-size: 45px;
   text-align: center;
 }
 
 p #temperature {
+     font-family: "Hobbiton Brushhand", serif;
 }
 .icon {
   height: 60px;
