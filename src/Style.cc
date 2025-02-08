@@ -49,9 +49,10 @@
 /* search form container*/
 .search-form {
   position: relative;
-  left: 535px;
-  top: 15px;
-  width: 250px;
+  top: 320px;
+  left: 50px;
+  grid-column: 1/2;
+  width: 450px;
   height: auto;
 }
 
@@ -60,12 +61,12 @@
   font-family: serif;
   color: #ffffff;
   background-color: rgba(248, 247, 244, 0.3);
-  border: 3px solid rgb(251, 200, 65, 0.6);
+  border: 2px solid rgb(251, 200, 65, 0.6);
   box-shadow: 0 0 0 1px rgb(251, 200, 65, 0.6);
-  border-radius: 25px;
-  padding: 5px 10px;
+  border-radius: 0px;
+  padding: 2px 6px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   width: 100%;
 }
@@ -73,10 +74,10 @@
 /* search form input*/
 .search-input {
   flex-grow: 1; /* Makes input take up remaining space */
-  height: 35px;
+  height: 25px;
   background-color: rgba(248, 247, 244, 0.2);
   border: none;
-  border-radius: 15px;
+  border-radius: 0;
   font-family: "Uncial Antiqua", serif;
   font-size: 16px;
   text-align: center;
