@@ -50,28 +50,33 @@
 /* search form container*/
 .search-form {
   position: relative;
-  grid-column: 2/2;
+  grid-column: 2/3;
   grid-row:3/3;
+  right:250px;
   width: auto;
   height: auto;
   
 }
 
-/* search form bar*/
+/* search form bar */
 #search-field {
   font-family: serif;
   color: #ffffff;
   background-color: rgba(248, 247, 244, 0.3);
-  border: 2px solid rgb(251, 200, 65, 0.6);
-  box-shadow: 0 0 0 1px rgb(251, 200, 65, 0.6);
-  border-radius: 0px;
+  border: 5px transparent; /* Set border to transparent */
+  box-shadow: 0 0 0 3px rgb(251, 200, 65, 0.6); /* Keep the golden glow effect */
+  border-radius: 15px; /* Rounded corners */
   padding: 2px 6px;
   width: 100%;
+  height: 20px;
+  overflow: hidden;
+  grid-column: 1 / 2;
+  grid-row: 3 / 3;
 }
 
 /* search form input*/
 .search-input {
-  flex-grow: 1; /* Makes input take up remaining space */
+  flex-grow: .99; /* Makes input take up remaining space */
   height: 25px;
   background-color: rgba(248, 247, 244, 0.2);
   border: none;
@@ -80,13 +85,11 @@
   font-size: 16px;
   text-align: center;
   color: #ffffff;
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 
 .search-input:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px 5px rgba(251, 200, 65, 0.8); /* Glow effect */
-  cursor: pointer;
+ 
 }
 
 /* text under search bar that toggles on/off when go button clicked*/
@@ -123,13 +126,16 @@
 }
 
 .temp {
- position: absolute;
- margin:auto;
-  grid-column: 1/2;
-  grid-row:1/1;
+  position: relative; /* Or absolute, depending on your layout */
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
   font-family: "Uncial Antiqua", serif;
-  font-size: 45px;
+  font-size: 55px;
   text-align: left;
+  white-space: nowrap;
+  bottom: 70px;
+  left: 25px;
+  align-self: start
 }
 
 p #temperature {
@@ -176,14 +182,14 @@ p #temperature {
   flex-wrap: nowrap;
   justify-content: center;
  position: absolute;
- right:25px;
- bottom: 15px;
   grid-column: 3/3;
   grid-row:2/2;
   font-family: "Uncial Antiqua", serif;
   font-size: 13px;
   font-stretch: expanded;
   text-align: left;
+  right:45px;
+  bottom:3px;
 }
 #hour,
 #min {
@@ -200,8 +206,8 @@ p #temperature {
   position: absolute;
   grid-column: 3/3;
   grid-row:2/2;
-  right: 25px;
-  bottom: 5px;
+  right:80px;
+  bottom:3px;
   font-family: "Uncial Antiqua", serif;
   font-size: 20px;
   font-stretch: expanded;
@@ -212,15 +218,17 @@ p #temperature {
 }
 
 .date {
-   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
+  display: flex;
+  flex-direction: row; /* Ensure items are in a row */
+  flex-wrap: nowrap; /* Prevent wrapping to new lines */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Align items vertically (optional) */
   position: absolute;
-  grid-column: 3/3;
-  grid-row:2/2;
-  right: 25px;
-  bottom: 35px;
+  grid-column: 2 / 3; /* Ensure it spans in the correct grid column */
+  grid-row: 2 / 2; /* Ensure it spans in the correct grid row */
+  right: 80px; /* Position from the right */
+  top: 70px; /* Position from the top */
+  width: auto;
   font-family: "Uncial Antiqua", serif;
   font-size: 13px;
   font-stretch: expanded;
