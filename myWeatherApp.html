@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyWeatherApp</title>
+
+    <!--stylesheet-->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="fonts" href="HobbitonBrushhandhobbitonBrush-WygA.ttf" />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="content-container">
+        <div class="search-form">
+          <form id="search-field">
+            <input
+              type="search"
+              placeholder="Enter a city.."
+              required
+              class="search-input"
+            />
+
+            <p id="searching"></p>
+            <!--toggles on/off when searching-->
+            <input type="submit" value="GO" class="search-button" />
+          </form>
+        </div>
+        <!--temperature-->
+        <div class="temp">
+          <h1><span id="temperature"> TEMP </span> °</h1>
+        </div>
+        <!--icon-->
+        <div class="icon">IC</div>
+        <!--weather info-->
+        <div class="info">
+          <p>Windspeed : <span id="wind"> ##</span> KMH</p>
+          <p>Humidity : <span id="humidity"> ##</span> %</p>
+          <p><span id="descriptor"> description</span></p>
+          <!-- weather desciptor-->
+        </div>
+        <!--time-->
+        <div class="time">
+          <span id="hour">HH</span>:<span id="min">MM</span>
+        </div>
+        <!--city-->
+        <div class="city">
+          <h1 id="city-result">City</h1>
+        </div>
+        <!--Date-->
+        <div class="date">
+          <span id="weekday">Weekday</span>,<span id="month">month</span>
+          <span id="day"> date</span>, <span id="year">year</span>
+        </div>
+      </div>
+    </div>
+  </body>
+  <footer>
+    This project was coded by:
+    <a href="https://www.instagram.com/vaneconaccento/" target="_blank"
+      >Vanessa Villegas</a
+    >
+    and is on
+    <a href="https://github.com/vaneconaccento/Weatherapp2.git" target="_blank"
+      >GitHub</a
+    >
+    and hosted on
+    <a href="https://anotherweatherproject.netlify.app/" target="_blank"
+      >Netlify</a
+    >
+  </footer>
+  <!-- JS Files -->
+  <script src="codes.js"></script>
+  <!-- weathercodes file -->
+  <script src="js.js"></script>
+  <!-- main JS file -->
+</html>
