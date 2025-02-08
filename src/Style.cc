@@ -10,7 +10,7 @@
 .app-container {
   height: 100%;
   padding: 25px;
-  color: #ffffff;
+  color:rgb(8, 8, 8);
   font-stretch: extra-expanded;
   position: relative; /* Change to absolute or relative */
   display: flex;
@@ -22,7 +22,7 @@
   right: 0; /* Optional: adjust as needed */
   top: 0; /* Optional: adjust as needed */
   bottom: 0;
-}
+  }
 
 /* app content*/
 .content-container {
@@ -36,17 +36,23 @@
   max-height: 450px;
   max-width: 650px;
   padding: 15px;
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/76f7b3f1-b080-4fc2-b063-acfc6981d5a8/d70c1s1-fa7abcdc-8331-4dd2-94ff-e7919b302c33.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzc2ZjdiM2YxLWIwODAtNGZjMi1iMDYzLWFjZmM2OTgxZDVhOFwvZDcwYzFzMS1mYTdhYmNkYy04MzMxLTRkZDItOTRmZi1lNzkxOWIzMDJjMzMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Yd_6KkqFYOgWJY8671bqfQa_N1DNoN81r9eJPyFNfN4");
-  background-size: cover;
-  background-blend-mode: lighten;
-  z-index: -15;
   border: 1px solid #000000;
   border-radius: 48px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   overflow-x: hidden;
 }
-
+.background-video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%; /* Makes video cover the width of the container */
+            height: 100%; /* Makes video cover the height of the container */
+            object-fit: cover; /* Ensures the video covers the area without distortion */
+            z-index: -2; /* Places the video behind the app container */
+            display: block;
+            opacity: 0.4;
+}
 /* search form container*/
 .search-form {
   position: relative;
@@ -69,8 +75,7 @@
   padding: 2px 6px;
   width: 100%;
   height: 20px;
-  overflow: hidden;
-  grid-column: 1 / 2;
+  grid-column: 2 / 3;
   grid-row: 3 / 3;
 }
 

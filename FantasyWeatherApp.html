@@ -21,25 +21,11 @@
   </head>
   <body>
     <div class="app-container">
-      <!--video background-->
-      <video
-        autoplay
-        loop
-        muted
-        class="background-video"
-        style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          z-index: -1;
-        "
-      >
-        <source src="your-video-file.mp4" type="video/mp4" />
-      </video>
       <div class="content-container">
+        <!--video background-->
+        <video autoplay loop muted class="background-video">
+          <source src="src\video\background.mp4" type="video/mp4" />
+        </video>
         <div class="search-form">
           <form id="search-field">
             <input
