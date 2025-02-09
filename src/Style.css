@@ -1,20 +1,20 @@
 /*fonts*/
 @font-face {
-  font-family: "Monsante"; 
-  src: url("src/fonts/MonsanteRegular-mLzvj.ttf") format("truetype"); 
+  font-family: "Hobbiton-Brush";
+  src: url("src/fonts/Hobbiton_Font.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-body{
-  font-family: "Poiret One", roboto; 
+body {
+  font-family: "Uncial Antiqua", serif;
 }
 
 /* app background and borders*/
 .app-container {
   height: 100%;
   padding: 25px;
-  color:rgb(8, 8, 8);
+  color: rgb(8, 8, 8);
   font-stretch: extra-expanded;
   position: relative; /* Change to absolute or relative */
   display: flex;
@@ -26,7 +26,7 @@ body{
   right: 0; /* Optional: adjust as needed */
   top: 0; /* Optional: adjust as needed */
   bottom: 0;
-  }
+}
 
 /* app content*/
 .content-container {
@@ -46,26 +46,25 @@ body{
   overflow: hidden;
   overflow-x: hidden;
 }
-.background-video{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%; /* Makes video cover the width of the container */
-            height: 100%; /* Makes video cover the height of the container */
-            object-fit: cover; /* Ensures the video covers the area without distortion */
-            z-index: -2; /* Places the video behind the app container */
-            display: block;
-            opacity: 0.4;
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  display: block;
+  opacity: 0.4;
 }
 /* search form container*/
 .search-form {
   position: relative;
   grid-column: 2/3;
-  grid-row:3/3;
-  right:250px;
+  grid-row: 3/3;
+  right: 250px;
   width: auto;
   height: auto;
-  
 }
 
 /* search form bar */
@@ -85,7 +84,7 @@ body{
 
 /* search form input*/
 .search-input {
-  flex-grow: .99; /* Makes input take up remaining space */
+  flex-grow: 0.99; /* Makes input take up remaining space */
   height: 25px;
   background-color: rgba(248, 247, 244, 0.2);
   border: none;
@@ -97,7 +96,6 @@ body{
 }
 
 .search-input:hover {
- 
 }
 
 /* text under search bar that toggles on/off when go button clicked*/
@@ -108,9 +106,9 @@ body{
   color: #ffffff;
   font-size: 18px;
   position: absolute;
-  top:10px;
-  left:350px;
-    }
+  top: 10px;
+  left: 350px;
+}
 
 /* search button glow config*/
 .search-button:before {
@@ -141,7 +139,7 @@ body{
   white-space: nowrap;
   bottom: 70px;
   left: 25px;
-  align-self: start
+  align-self: start;
 }
 
 p #temperature {
@@ -155,7 +153,7 @@ p #temperature {
   align-content: center;
   position: absolute;
   grid-column: 1/1;
-  grid-row:2/2;
+  grid-row: 2/2;
 }
 .info {
   height: 160px;
@@ -166,8 +164,8 @@ p #temperature {
   justify-content: center;
   position: absolute;
   grid-column: 1/1;
-  grid-row:2/2;
-  left:160px;
+  grid-row: 2/2;
+  left: 160px;
   bottom: 25px;
   font-size: 14px;
   font-stretch: expanded;
@@ -186,14 +184,14 @@ p #temperature {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
- position: absolute;
+  position: absolute;
   grid-column: 3/3;
-  grid-row:2/2;
+  grid-row: 2/2;
   font-size: 13px;
   font-stretch: expanded;
   text-align: left;
-  right:45px;
-  bottom:3px;
+  right: 45px;
+  bottom: 3px;
 }
 #hour,
 #min {
@@ -209,9 +207,9 @@ p #temperature {
   justify-content: center;
   position: absolute;
   grid-column: 3/3;
-  grid-row:2/2;
-  right:80px;
-  bottom:3px;
+  grid-row: 2/2;
+  right: 80px;
+  bottom: 3px;
   font-size: 20px;
   font-stretch: expanded;
   text-align: left;
@@ -229,7 +227,7 @@ p #temperature {
   position: absolute;
   grid-column: 2 / 3; /* Ensure it spans in the correct grid column */
   grid-row: 2 / 2; /* Ensure it spans in the correct grid row */
-  right: 150px; /* Position from the right */
+  right: 80px; /* Position from the right */
   top: 70px; /* Position from the top */
   width: auto;
   font-size: 13px;
@@ -250,7 +248,7 @@ footer {
   bottom: 50px;
   text-align: center;
   font-size: 12px;
-   color: rgb(247, 246, 243);
+  color: rgb(247, 246, 243);
 }
 
 a: {

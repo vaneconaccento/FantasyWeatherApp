@@ -9,32 +9,20 @@
     <link rel="stylesheet" href="src/Style.cc" />
     <!-- Axios -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Geocode.map API-->
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="src\fonts\MonsanteRegular-mLzvj.ttf" />
+     
   </head>
   <body>
     <div class="app-container">
       <div class="content-container">
-        <!--video background-->
-        <video autoplay loop muted class="background-video">
-          <source src="src\video\background.mp4" type="video/mp4" />
-        </video>
-        <div class="search-form">
-          <form id="search-field">
-            <input
-              type="search"
-              placeholder="Enter a city.."
-              required
-              class="search-input"
-            />
-
-            <p id="searching"></p>
+       <video
+        src="src\media\forest.mp4"
+        autoplay
+        loop>
+       </video>
+       
+        <p id="searching"></p>
             <!--toggles on/off when searching-->
             <input type="submit" value="GO" class="search-button" />
           </form>

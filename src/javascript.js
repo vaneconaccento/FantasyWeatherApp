@@ -96,7 +96,7 @@ function searchClick(event) {
         }
 
         //Tomorrow.io API
-        const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${lat},${lng}&apikey=${apiKey}&fields=temperature,weatherCode,humidity,precipitation,weatherIcon,windspeed`;
+        const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${lat},${lon}&apikey=${apiKey}&fields=temperature,weatherCode,humidity,precipitation,weatherIcon,windspeed`;
 
         updateSearchPlaceholder(cityInput);
         updateCity(cityInput);
@@ -136,7 +136,7 @@ function weatherUpdate(response) {
   let weatherWindspeed = document.querySelector("#wind");
   let weatherHumidity = document.querySelector("#humidity");
   let weatherDescription = document.querySelector("#description");
-  let weatherIcon = document.querySelector("icon");
+  let weatherIcon = document.querySelector(".icon");
 
   //this section checks for weathercode and maps the description and icon
 
@@ -151,9 +151,8 @@ function weatherUpdate(response) {
     weatherTemp.innerHTML = `${Math.round(values.temperature)}°C`;
     weatherWindspeed.innerHTML = `${values.windSpeed}`;
     weatherHumidity.innerHTML = `${values.humidity}`;
-    weatherDescription.innerHTML = getDescription(values.weatherCode);
 
-    // Get code description
+    // Get code and update description
     function getDescription(code) {
       if (!code) {
         console.warn("Weathercode is missing.");
@@ -161,6 +160,8 @@ function weatherUpdate(response) {
       }
       return weatherCodes.weatherCode[code] || "No data";
     }
+    const description = weatherCodes[values.weatherCode] || "No data";
+    weatherDescription.innerHTML = description;
 
     // Maps weather icon to code
     const iconUrl = weatherIcons[values.weatherCode] || weatherIcons[0];
@@ -173,8 +174,9 @@ function weatherUpdate(response) {
 }
 
 // Event listener ("GO" click)
-let form = document.querySelector("#search-field");
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  searchClick(event);
-});
+document
+  .querySelector(".search-button")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+    searchClick(event);
+  });
