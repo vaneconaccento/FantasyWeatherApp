@@ -1,9 +1,13 @@
 /*fonts*/
 @font-face {
-  font-family: "Hobbiton Brushhand"; /* Name of the font */
-  src: url("HobbitonBrushhandhobbitonBrush-WygA.ttf") format("truetype"); /* Relative path */
+  font-family: "Monsante"; 
+  src: url("src/fonts/MonsanteRegular-mLzvj.ttf") format("truetype"); 
   font-weight: normal;
   font-style: normal;
+}
+
+body{
+  font-family: "Poiret One", roboto; 
 }
 
 /* app background and borders*/
@@ -86,7 +90,6 @@
   background-color: rgba(248, 247, 244, 0.2);
   border: none;
   border-radius: 0;
-  font-family: "Uncial Antiqua", serif;
   font-size: 16px;
   text-align: center;
   color: #ffffff;
@@ -103,7 +106,6 @@
 
 .search-button {
   color: #ffffff;
-  font-family: "Uncial Antiqua", serif;
   font-size: 18px;
   position: absolute;
   top:10px;
@@ -134,7 +136,6 @@
   position: relative; /* Or absolute, depending on your layout */
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  font-family: "Uncial Antiqua", serif;
   font-size: 55px;
   text-align: left;
   white-space: nowrap;
@@ -168,7 +169,6 @@ p #temperature {
   grid-row:2/2;
   left:160px;
   bottom: 25px;
-  font-family: "Uncial Antiqua", serif;
   font-size: 14px;
   font-stretch: expanded;
   text-align: left;
@@ -189,7 +189,6 @@ p #temperature {
  position: absolute;
   grid-column: 3/3;
   grid-row:2/2;
-  font-family: "Uncial Antiqua", serif;
   font-size: 13px;
   font-stretch: expanded;
   text-align: left;
@@ -213,7 +212,6 @@ p #temperature {
   grid-row:2/2;
   right:80px;
   bottom:3px;
-  font-family: "Uncial Antiqua", serif;
   font-size: 20px;
   font-stretch: expanded;
   text-align: left;
@@ -231,10 +229,9 @@ p #temperature {
   position: absolute;
   grid-column: 2 / 3; /* Ensure it spans in the correct grid column */
   grid-row: 2 / 2; /* Ensure it spans in the correct grid row */
-  right: 80px; /* Position from the right */
+  right: 150px; /* Position from the right */
   top: 70px; /* Position from the top */
   width: auto;
-  font-family: "Uncial Antiqua", serif;
   font-size: 13px;
   font-stretch: expanded;
   text-align: left;
@@ -253,8 +250,7 @@ footer {
   bottom: 50px;
   text-align: center;
   font-size: 12px;
-  font-family: "Uncial Antiqua", serif;
-  color: rgb(247, 246, 243);
+   color: rgb(247, 246, 243);
 }
 
 a: {
