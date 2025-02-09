@@ -68,9 +68,15 @@ function updateDatTime() {
   document.querySelector("#min").innerHTML = minutes;
 }
 
-updateDatTime();
+setInterval(updateDatTime, 60000); // Update every minute
 
-//function to search a city and convert city search input to proper case
+//function to convert city to propercase
+function toProperCase(str) {
+  return str.replace(/\/\S*/g, function(txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+}
+//function to search a city 
 function searchClick(event) {
   event.preventDefault();
   let cityInput = document.querySelector(".search-input").value;
@@ -92,6 +98,7 @@ function searchClick(event) {
 
         if (!lat || !lon) {
           alert("Location shrouded in darkness. No weather data available.");
+         citySearch.style.display = "none";
           return;
         }
 
@@ -167,10 +174,13 @@ function weatherUpdate(response) {
     const iconUrl = weatherIcons[values.weatherCode] || weatherIcons[0];
 
     // Updates weather icon
+    const iconUrl = weatherIcons[values.weatherCode] || weatherIcons[0];
+    
+    if (iconUrl) {
     weatherIcon.innerHTML = `<img src="${iconUrl}" alt="weather icon" />`;
-  } else {
-    console.error("Invalid or missing data in response", response);
-  }
+    } else {
+    weatherIcon.innerHTML = `<img src="path/to/default/icon.png" alt="default weather icon" />`;
+    }
 }
 
 // Event listener ("GO" click)

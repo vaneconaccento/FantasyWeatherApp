@@ -2,12 +2,12 @@
 @font-face {
   font-family: "Hobbiton-Brush";
   src: url("src/fonts/Hobbiton_Font.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
 }
 
 body {
-  font-family: "Uncial Antiqua", serif;
+  font-family: p22-elven, sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
 /* app background and borders*/
@@ -46,7 +46,7 @@ body {
   overflow: hidden;
   overflow-x: hidden;
 }
-.background-image {
+.background-video {
   position: absolute;
   top: 0;
   left: 0;
