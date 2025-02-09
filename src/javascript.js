@@ -76,37 +76,55 @@ function searchClick(event) {
   let cityInput = document.querySelector(".search-input").value;
   cityInput = toProperCase(cityInput);
 
-  //function to convert location to geocoords
+  //tomorrow.io apikey/url
+  const apiKey = "xXKqIdDpT0sRO3yOXcGtg5tFS8C7NQZ7";
+
+  //Geocode.maps api/key
   const geocoordKey = "67a86027a7d26583232989ydi590d06";
   const geocoordAPIurl = `https://geocode.maps.co/search?q=${cityInput}&api_key=${geocoordKey}`;
 
-  getCoordinates(cityInput).then((coordinates) => {
-    if (!coordinates) {
-      alert("Location shrouded in darkness. No weather information available.");
-      return;
-    }
-    //tomorrow.io apikey/url
-    const apiKey = "xXKqIdDpT0sRO3yOXcGtg5tFS8C7NQZ7";
-    const { lat, lng } = coordinates;
-    const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${lat},${lng}&apikey=${apiKey}&fields=temperature,weatherCode,humidity,precipitation,weatherIcon,windspeed`;
+  //call Geocode.maps api to get coords
+  axios
+    .get(geocoordAPIurl)
+    .then((response) => {
+      if (response.data && response.data[0]) {
+        const { lat, lon } = response.data[0]; //gets the lat and long
 
-    updateSearchPlaceholder(cityInput);
-    updateCity(cityInput);
+        if (!lat || !lon) {
+          alert("Location shrouded in darkness. No weather data available.");
+          return;
+        }
 
-    //function to toggle search message on
-    let citySearch = document.querySelector("#searching-city");
-    citySearch.style.display = "block";
+        //Tomorrow.io API
+        const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${lat},${lng}&apikey=${apiKey}&fields=temperature,weatherCode,humidity,precipitation,weatherIcon,windspeed`;
 
-    // tomorrow.io API Call
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        weatherUpdate(response); // Updates weather data
-      })
-      .catch((error) => {
-        console.error("Error fetching weather data:", error);
-      });
-  });
+        updateSearchPlaceholder(cityInput);
+        updateCity(cityInput);
+
+        //function to toggle search message on
+        let citySearch = document.querySelector("#searching-city");
+        citySearch.style.display = "block";
+
+        // tomorrow.io API Call and toggle #searching-city element off once search completes
+        axios
+          .get(apiUrl)
+          .then((response) => {
+            weatherUpdate(response); // Updates weather data
+            citySearch.style.display = "none"; // toggles off searching-city
+          })
+          .catch((error) => {
+            console.error("Error fetching weather data:", error);
+            citySearch.style.display = "none"; // toggles off searching-city if error
+          });
+      } else {
+        alert("City not found or invalid. Please try again.");
+        citySearch.style.display = "none"; // toggles off searching-city if failure
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching coordinates:", error);
+      citySearch.style.display = "none"; // toggles off searching-city if error
+    });
 }
 
 //function to update weather data
