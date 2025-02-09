@@ -77,13 +77,16 @@ function searchClick(event) {
   cityInput = toProperCase(cityInput);
 
   //function to convert location to geocoords
+  const geocoordKey = "67a86027a7d26583232989ydi590d06";
+  const geocoordAPIurl = `https://geocode.maps.co/search?q=${cityInput}&api_key=${geocoordKey}`;
+
   getCoordinates(cityInput).then((coordinates) => {
     if (!coordinates) {
       alert("Location shrouded in darkness. No weather information available.");
       return;
     }
-
-    const apiKey = "";
+    //tomorrow.io apikey/url
+    const apiKey = "xXKqIdDpT0sRO3yOXcGtg5tFS8C7NQZ7";
     const { lat, lng } = coordinates;
     const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${lat},${lng}&apikey=${apiKey}&fields=temperature,weatherCode,humidity,precipitation,weatherIcon,windspeed`;
 
@@ -94,7 +97,7 @@ function searchClick(event) {
     let citySearch = document.querySelector("#searching-city");
     citySearch.style.display = "block";
 
-    // API Call
+    // tomorrow.io API Call
     axios
       .get(apiUrl)
       .then((response) => {
