@@ -1,62 +1,60 @@
 /*fonts*/
 @font-face {
-  font-family: "Hobbiton-Brush";
+  font-family: "Hobbiton-Brushed";
   src: url("src/fonts/Hobbiton_Font.ttf") format("truetype");
 }
 
 body {
-  font-family: p22-elven, sans-serif;
-  font-style: normal;
-  font-weight: 400;
+  font-family: "Uncial Antiqua", serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
 }
 
 /* app background and borders*/
 .app-container {
-  height: 100%;
+  height: 100vh;
   padding: 25px;
-  color: rgb(8, 8, 8);
-  font-stretch: extra-expanded;
-  position: relative; /* Change to absolute or relative */
   display: flex;
   justify-content: center;
   align-items: center;
   animation: center;
-  margin: 0 auto; /* Ensure centering */
-  left: 0; /* Optional: adjust as needed */
-  right: 0; /* Optional: adjust as needed */
-  top: 0; /* Optional: adjust as needed */
-  bottom: 0;
+  margin: 0 auto;
+  z-index: 1;
+  overflow: hidden;
 }
-
+.background-video {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -2;
+  display: block;
+  opacity: 0.4;
+}
 /* app content*/
 .content-container {
   display: grid;
-  position: relative; /* Change from fixed to relative */
+  position: relative;
   margin: auto;
   top: 25px;
   grid-template-columns: 3fr 1fr 3fr;
   grid-template-rows: 150px 150px 150px;
   gap: 15px;
-  max-height: 450px;
-  max-width: 650px;
+  max-height: 100%;
+  max-width: 100%;
   padding: 15px;
   border: 1px solid #000000;
   border-radius: 48px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   overflow-x: hidden;
+  z-index: 2;
 }
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-  display: block;
-  opacity: 0.4;
-}
+
 /* search form container*/
 .search-form {
   position: relative;
@@ -72,9 +70,9 @@ body {
   font-family: serif;
   color: #ffffff;
   background-color: rgba(248, 247, 244, 0.3);
-  border: 5px transparent; /* Set border to transparent */
+  border: 5px transparent;
   box-shadow: 0 0 0 3px rgb(251, 200, 65, 0.6); /* Keep the golden glow effect */
-  border-radius: 15px; /* Rounded corners */
+  border-radius: 15px;
   padding: 2px 6px;
   width: 100%;
   height: 20px;
@@ -84,7 +82,7 @@ body {
 
 /* search form input*/
 .search-input {
-  flex-grow: 0.99; /* Makes input take up remaining space */
+  flex-grow: 0.99;
   height: 25px;
   background-color: rgba(248, 247, 244, 0.2);
   border: none;
@@ -95,11 +93,9 @@ body {
   padding: 5px 10px;
 }
 
-.search-input:hover {
-}
-
 /* text under search bar that toggles on/off when go button clicked*/
 #searching {
+  color: #ffffff;
 }
 
 .search-button {
@@ -112,7 +108,7 @@ body {
 
 /* search button glow config*/
 .search-button:before {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -131,15 +127,13 @@ body {
 }
 
 .temp {
-  position: relative; /* Or absolute, depending on your layout */
+  font-size: 55px;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  font-size: 55px;
-  text-align: left;
+  align-self: flex-start;
   white-space: nowrap;
-  bottom: 70px;
-  left: 25px;
-  align-self: start;
+  margin-bottom: 20px;
+  z-index: -1;
 }
 
 p #temperature {
@@ -184,7 +178,7 @@ p #temperature {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  position: absolute;
+  position: relative;
   grid-column: 3/3;
   grid-row: 2/2;
   font-size: 13px;
@@ -205,7 +199,7 @@ p #temperature {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  position: absolute;
+  position: relative;
   grid-column: 3/3;
   grid-row: 2/2;
   right: 80px;
@@ -224,7 +218,7 @@ p #temperature {
   flex-wrap: nowrap; /* Prevent wrapping to new lines */
   justify-content: center; /* Center items horizontally */
   align-items: center; /* Align items vertically (optional) */
-  position: absolute;
+  position: r;
   grid-column: 2 / 3; /* Ensure it spans in the correct grid column */
   grid-row: 2 / 2; /* Ensure it spans in the correct grid row */
   right: 80px; /* Position from the right */
@@ -251,7 +245,7 @@ footer {
   color: rgb(247, 246, 243);
 }
 
-a: {
+a {
   color: #d40202;
 }
 
