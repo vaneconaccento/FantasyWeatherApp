@@ -78,6 +78,16 @@ function toProperCase(str) {
   });
 }
 
+//function for placeholder text update
+function updateSearchPlaceholder(placeholderText) {
+  cityInput.setAttribute("placeholder", placeholderText);
+}
+
+//function to update city text
+function updateCity(cityInput) {
+  let location = document.querySelector("#city-result");
+  location.innerHTML = `${cityInput.value}`;
+}
 //function to search a city
 function searchClick(event) {
   event.preventDefault();
@@ -89,6 +99,11 @@ function searchClick(event) {
 
   cityInput = cityInput.value;
   cityInput = toProperCase(cityInput);
+
+  updateSearchPlaceholder(cityInput);
+
+  //update the city text
+  updateCity(cityInput);
 
   //tomorrow.io apikey/url
   const apiKey = "xXKqIdDpT0sRO3yOXcGtg5tFS8C7NQZ7";
@@ -113,9 +128,6 @@ function searchClick(event) {
         //Tomorrow.io API
         const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${lat},${lon}&apikey=${apiKey}&fields=temperature,weatherCode,humidity,precipitation,weatherIcon,windspeed`;
 
-        updateSearchPlaceholder(cityInput);
-        updateCity(cityInput);
-
         //function to toggle search message on
         let citySearch = document.querySelector("#searching-city");
         citySearch.style.display = "block";
@@ -124,7 +136,6 @@ function searchClick(event) {
         axios
           .get(apiUrl)
           .then((response) => {
-            // Check if response contains valid weather data
             if (
               response.data &&
               response.data.data &&
@@ -134,6 +145,7 @@ function searchClick(event) {
             } else {
               alert("City not found or invalid. Please try again.");
             }
+            // Reset placeholder text after completion
             cityInput.setAttribute("placeholder", searchPlaceholdertext);
           })
           .catch((error) => {
