@@ -26,7 +26,6 @@
 //function to update date and time
 function updateDatTime() {
   let now = new Date();
-
   let days = [
     "Sunday",
     "Monday",
@@ -37,9 +36,7 @@ function updateDatTime() {
     "Saturday",
   ];
   let day = days[now.getDay()];
-
   let date = now.getDate();
-
   let months = [
     "January",
     "February",
@@ -55,10 +52,14 @@ function updateDatTime() {
     "December",
   ];
   let month = months[now.getMonth()];
-
   let year = now.getFullYear();
   let hour = now.getHours();
   let minutes = now.getMinutes();
+
+  //for minutes less than 10 display a 0 in front
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
 
   document.querySelector("#weekday").innerHTML = day;
   document.querySelector("#month").innerHTML = month;
@@ -72,14 +73,21 @@ setInterval(updateDatTime, 60000); // Update every minute
 
 //function to convert city to propercase
 function toProperCase(str) {
-  return str.replace(/\/\S*/g, function(txt) {
+  return str.replace(/\/\S*/g, function (txt) {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
 }
-//function to search a city 
+
+//function to search a city
 function searchClick(event) {
   event.preventDefault();
-  let cityInput = document.querySelector(".search-input").value;
+  let cityInput = document.querySelector(".search-input");
+
+  // update placeholder text when searching'
+  let searchPlaceholdertext = cityInput.getAttribute("placeholder");
+  cityInput.setAttribute("placeholder", "Searching...");
+
+  cityInput = cityInput.value;
   cityInput = toProperCase(cityInput);
 
   //tomorrow.io apikey/url
@@ -98,7 +106,7 @@ function searchClick(event) {
 
         if (!lat || !lon) {
           alert("Location shrouded in darkness. No weather data available.");
-         citySearch.style.display = "none";
+          citySearch.style.display = "none";
           return;
         }
 
@@ -112,30 +120,40 @@ function searchClick(event) {
         let citySearch = document.querySelector("#searching-city");
         citySearch.style.display = "block";
 
-        // tomorrow.io API Call and toggle #searching-city element off once search completes
+        // tomorrow.io API Call and resets form placeholder text upon search completion
         axios
           .get(apiUrl)
           .then((response) => {
-            weatherUpdate(response); // Updates weather data
-            citySearch.style.display = "none"; // toggles off searching-city
+            // Check if response contains valid weather data
+            if (
+              response.data &&
+              response.data.data &&
+              response.data.data.values
+            ) {
+              weatherUpdate(response); // Updates weather data
+            } else {
+              alert("City not found or invalid. Please try again.");
+            }
+            cityInput.setAttribute("placeholder", searchPlaceholdertext);
           })
           .catch((error) => {
             console.error("Error fetching weather data:", error);
-            citySearch.style.display = "none"; // toggles off searching-city if error
+            alert("Something went wrong. Please try again later.");
+            cityInput.setAttribute("placeholder", searchPlaceholdertext);
           });
       } else {
         alert("City not found or invalid. Please try again.");
-        citySearch.style.display = "none"; // toggles off searching-city if failure
+        cityInput.setAttribute("placeholder", searchPlaceholdertext);
       }
     })
     .catch((error) => {
       console.error("Error fetching coordinates:", error);
-      citySearch.style.display = "none"; // toggles off searching-city if error
+      alert("Something went wrong with the geocode request.");
+      cityInput.setAttribute("placeholder", searchPlaceholdertext);
     });
 }
 
 //function to update weather data
-
 function weatherUpdate(response) {
   console.log("API Response:", response.data);
 
@@ -146,7 +164,6 @@ function weatherUpdate(response) {
   let weatherIcon = document.querySelector(".icon");
 
   //this section checks for weathercode and maps the description and icon
-
   if (response.data && response.data.data && response.data.data.values) {
     let values = response.data.data.values;
     console.log("Weather values:", values); // logs weather values
@@ -163,24 +180,25 @@ function weatherUpdate(response) {
     function getDescription(code) {
       if (!code) {
         console.warn("Weathercode is missing.");
-        return "One does not simply know the forecast!";
+        return "missing weathercode!";
       }
       return weatherCodes.weatherCode[code] || "No data";
     }
-    const description = weatherCodes[values.weatherCode] || "No data";
+
+    // Get weather description using the function
+    let description = getDescription(values.weatherCode);
     weatherDescription.innerHTML = description;
 
     // Maps weather icon to code
     const iconUrl = weatherIcons[values.weatherCode] || weatherIcons[0];
 
     // Updates weather icon
-    const iconUrl = weatherIcons[values.weatherCode] || weatherIcons[0];
-    
     if (iconUrl) {
-    weatherIcon.innerHTML = `<img src="${iconUrl}" alt="weather icon" />`;
+      weatherIcon.innerHTML = `<img src="${iconUrl}" alt="weather icon" />`;
     } else {
-    weatherIcon.innerHTML = `<img src="path/to/default/icon.png" alt="default weather icon" />`;
+      weatherIcon.innerHTML = `<img src="path/to/default/icon.png" alt="default weather icon" />`;
     }
+  }
 }
 
 // Event listener ("GO" click)

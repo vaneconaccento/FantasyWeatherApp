@@ -1,4 +1,4 @@
-/*fonts*/
+/* Fonts */
 @font-face {
   font-family: "Hobbiton-Brushed";
   src: url("src/fonts/Hobbiton_Font.ttf") format("truetype");
@@ -12,246 +12,217 @@ body {
   height: 100%;
 }
 
-/* app background and borders*/
+/* App container */
 .app-container {
-  height: 100vh;
-  padding: 25px;
+  position: relative;
+  height: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: center;
-  margin: 0 auto;
-  z-index: 1;
+  padding: 25px;
+  z-index: 1; /* Ensure content is above the video */
   overflow: hidden;
+  box-sizing: border-box;
 }
+
+/* Background video */
 .background-video {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
-  width: auto;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  z-index: -2;
-  display: block;
-  opacity: 0.4;
+  opacity: 0.4; /* Slightly faded */
+  z-index: -1; /* Keep video in background */
 }
-/* app content*/
+
+/* Content container */
 .content-container {
   display: grid;
-  position: relative;
-  margin: auto;
-  top: 25px;
-  grid-template-columns: 3fr 1fr 3fr;
-  grid-template-rows: 150px 150px 150px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto 1fr;
   gap: 15px;
-  max-height: 100%;
-  max-width: 100%;
-  padding: 15px;
-  border: 1px solid #000000;
+  width: 650px;
+  height: 450px;
+  padding: 20px;
+  border: 1px solid #000;
   border-radius: 48px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2; /* Ensure content is above the video */
+  box-sizing: border-box;
   overflow: hidden;
-  overflow-x: hidden;
-  z-index: 2;
-}
-
-/* search form container*/
-.search-form {
   position: relative;
-  grid-column: 2/3;
-  grid-row: 3/3;
-  right: 250px;
-  width: auto;
-  height: auto;
 }
 
-/* search form bar */
+/* Temperature (top left) */
+.temp {
+  font-size: 45px; /* Adjusted size to fit */
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: flex-start;
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+/* Time (top center) */
+.time {
+  font-size: 20px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Icon and Data (left) */
+.icon {
+  height: 60px;
+  width: 60px;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  font-size: 14px;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10px;
+}
+
+/* City (right) */
+.city {
+  font-size: 20px;
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  text-align: left;
+  padding-left: 10px;
+}
+
+/* Date (bottom center) */
+.date {
+  font-size: 13px;
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+}
+
+/* Search form (centered at the bottom) */
+.search-form {
+  grid-column: 1 / 4;
+  grid-row: 4 / 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%; /* Make it take full width of the container */
+  justify-self: center;
+}
+
+/* Search bar */
 #search-field {
   font-family: serif;
   color: #ffffff;
   background-color: rgba(248, 247, 244, 0.3);
   border: 5px transparent;
-  box-shadow: 0 0 0 3px rgb(251, 200, 65, 0.6); /* Keep the golden glow effect */
+  box-shadow: 0 0 0 3px rgb(251, 200, 65, 0.6);
   border-radius: 15px;
-  padding: 2px 6px;
-  width: 100%;
-  height: 20px;
-  grid-column: 2 / 3;
-  grid-row: 3 / 3;
+  padding: 10px;
+  width: 80%; /* Adjusted width */
+  max-width: 280px;
+  font-size: 18px;
 }
 
-/* search form input*/
-.search-input {
-  flex-grow: 0.99;
-  height: 25px;
-  background-color: rgba(248, 247, 244, 0.2);
-  border: none;
-  border-radius: 0;
-  font-size: 16px;
-  text-align: center;
-  color: #ffffff;
-  padding: 5px 10px;
-}
-
-/* text under search bar that toggles on/off when go button clicked*/
-#searching {
-  color: #ffffff;
-}
-
+/* Search button */
 .search-button {
   color: #ffffff;
   font-size: 18px;
-  position: absolute;
-  top: 10px;
-  left: 350px;
+  background-color: #d40202;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  height: 100%;
+  width: 15%; /* Adjusted width */
 }
 
-/* search button glow config*/
-.search-button:before {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 12px;
-  color: rgba(255, 215, 0, 0.8); /* Golden inscription glow */
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 1), 0 0 20px rgba(255, 215, 0, 0.7);
-}
-
-/* search button hover config*/
+/* Search button hover */
 .search-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 15px 5px rgba(251, 200, 65, 0.8);
-  cursor: pointer;
+  background-color: #d4af37;
 }
 
-.temp {
-  font-size: 55px;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
-  align-self: flex-start;
-  white-space: nowrap;
-  margin-bottom: 20px;
-  z-index: -1;
-}
-
-p #temperature {
-}
-.icon {
-  height: 60px;
-  width: 60px;
-  left: 50px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  position: absolute;
-  grid-column: 1/1;
-  grid-row: 2/2;
-}
-.info {
-  height: 160px;
-  width: 160px;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: absolute;
-  grid-column: 1/1;
-  grid-row: 2/2;
-  left: 160px;
-  bottom: 25px;
-  font-size: 14px;
-  font-stretch: expanded;
-  text-align: left;
-}
-#wind,
-#humidity,
-#descriptor {
-}
-
-.time {
-  height: 160px;
-  width: 160px;
-  grid-column: 3/3;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  position: relative;
-  grid-column: 3/3;
-  grid-row: 2/2;
-  font-size: 13px;
-  font-stretch: expanded;
-  text-align: left;
-  right: 45px;
-  bottom: 3px;
-}
-#hour,
-#min {
-}
-
-.city {
-  height: 160px;
-  width: 160px;
-  grid-column: 3/3;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  position: relative;
-  grid-column: 3/3;
-  grid-row: 2/2;
-  right: 80px;
-  bottom: 3px;
-  font-size: 20px;
-  font-stretch: expanded;
-  text-align: left;
-}
-
-#city-result {
-}
-
-.date {
-  display: flex;
-  flex-direction: row; /* Ensure items are in a row */
-  flex-wrap: nowrap; /* Prevent wrapping to new lines */
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Align items vertically (optional) */
-  position: r;
-  grid-column: 2 / 3; /* Ensure it spans in the correct grid column */
-  grid-row: 2 / 2; /* Ensure it spans in the correct grid row */
-  right: 80px; /* Position from the right */
-  top: 70px; /* Position from the top */
-  width: auto;
-  font-size: 13px;
-  font-stretch: expanded;
-  text-align: left;
-}
-
-#weekday,
-#month,
-#day,
-#year {
-}
-
+/* Footer */
 footer {
   grid-column: 2 / 3;
-  grid-row: 3;
-  position: relative;
-  bottom: 50px;
+  grid-row: 5 / 6;
   text-align: center;
   font-size: 12px;
   color: rgb(247, 246, 243);
+  margin-top: 20px;
 }
 
-a {
-  color: #d40202;
-}
+/* Responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .content-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto 1fr;
+  }
 
-a:before {
-  color: #d40202;
-}
-a:hover {
-  color: #d4af37;
+  .temp {
+    font-size: 40px;
+  }
+
+  .time {
+    font-size: 18px;
+  }
+
+  .icon {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    align-self: center;
+  }
+
+  .info {
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .city {
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .date {
+    grid-column: 1 / 2;
+    grid-row: 6 / 7;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .search-form {
+    grid-column: 1 / 2;
+    grid-row: 7 / 8;
+  }
+
+  .search-button {
+    width: 100%;
+    margin-top: 10px;
+  }
 }
