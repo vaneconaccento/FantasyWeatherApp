@@ -75,9 +75,10 @@ body {
 
 /* Search form input */
 .search-input {
-  color: #000000;
+  color: #302404;
   text-align: center;
   font-size: 14px;
+  font-family: "Uncial Antiqua", serif;
 }
 
 /* Search button */
@@ -126,7 +127,7 @@ body {
 
 #metric {
   font-family: "Uncial Antiqua", serif;
-  font-size: 25px;
+  font-size: 45px;
 }
 
 .icon {

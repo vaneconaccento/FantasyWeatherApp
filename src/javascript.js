@@ -189,7 +189,7 @@ function weatherUpdate(response, cityInput) {
     let values = response.data.data.values;
 
     // Update HTML with weather data
-    weatherTemp.innerHTML = `${Math.round(values.temperature)}`;
+    weatherTemp.innerHTML = `${Math.round(values.temperature)}°`;
     weatherWindspeed.innerHTML = `${values.windSpeed} km/h`;
     weatherHumidity.innerHTML = `${values.humidity}%`;
 
