@@ -28,7 +28,7 @@ body {
   background-image: url("https://images.pexels.com/photos/1233245/pexels-photo-1233245.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  opacity: 0.7;
   z-index: -1;
   display: grid;
   grid-template-columns: 3fr 1fr 3 fr;
@@ -51,7 +51,6 @@ body {
 .search-form {
   border: 3px transparent;
   border-radius: 55px;
-  box-shadow: 50px rgba(244, 190, 12, 0.7);
   margin-bottom: 20px;
   padding: 10px;
   position: relative;
@@ -71,26 +70,31 @@ body {
   margin: 5px 0;
   background-color: #ffffff;
   border-radius: 55px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
 /* Search form input */
 .search-input {
-  color: #302404;
+  color: #081108;
   text-align: center;
   font-size: 14px;
   font-family: "Uncial Antiqua", serif;
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Search button */
 .search-button {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #d40202;
-  padding: 10px 20px;
+  background-color: #081108;
+  color: white;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  border-radius: 50%; /* Make the button circular */
-  width: 50px;
-  height: 50px;
+  transition: all 0.3s ease-in-out;
+  border: 3px solid #faf9f7;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -99,11 +103,21 @@ body {
   left: 25px;
   bottom: 10px;
   text-align: center;
-  font-family: 14px;
+  font-size: 27px;
+  line-height: 50px;
+  font-family: "Uncial Antiqua", serif;
 }
 
+/* Hover effect */
 .search-button:hover {
-  border-color: #d4af37;
+  background-color: #d39001;
+  box-shadow: 0 0 10px 5px rgba(240, 216, 81, 0.8);
+}
+
+/* Glow effect */
+.search-button:focus {
+  outline: none;
+  box-shadow: 0 0 20px 10px rgba(243, 191, 78, 0.8);
 }
 
 .temp,
@@ -118,16 +132,25 @@ body {
   padding: 5px;
 }
 
+/*font for .temp and .city*/
+.temp,
+.city {
+  font-family: "Uncial Antiqua", serif;
+  color: #fcfbf8;
+  text-shadow: 7px 3px 6px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
 .temp {
   bottom: 200px;
   left: 50px;
   font-size: 60px;
-  font-family: "Uncial Antiqua", serif;
 }
 
 #metric {
   font-family: "Uncial Antiqua", serif;
-  font-size: 45px;
+  font-size: 50px;
 }
 
 .icon {
@@ -145,8 +168,7 @@ body {
   font-stretch: expanded;
 }
 #descriptor {
-  font-family: "Uncial Antiqua", serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 .time,
 .city,
@@ -168,7 +190,6 @@ body {
   top: 170px;
   right: 55px;
   font-size: 20px;
-  font-family: "Uncial Antiqua", serif;
 }
 
 .date {
