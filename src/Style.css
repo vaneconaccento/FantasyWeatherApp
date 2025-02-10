@@ -96,12 +96,12 @@ body {
   align-items: center;
   overflow: hidden;
   left: 25px;
+  bottom: 10px;
   text-align: center;
   font-family: 14px;
 }
 
 .search-button:hover {
-  background-color: #d40202;
   border-color: #d4af37;
 }
 
@@ -118,25 +118,35 @@ body {
 }
 
 .temp {
-  bottom: 190px;
-  left: 60px;
+  bottom: 200px;
+  left: 50px;
   font-size: 60px;
+  font-family: "Uncial Antiqua", serif;
+}
+
+#metric {
+  font-family: "Uncial Antiqua", serif;
+  font-size: 25px;
 }
 
 .icon {
-  width: 80px;
-  height: 80px;
-  left: 85px;
-  bottom: 205px;
+  width: 90px;
+  height: 90px;
+  left: 45px;
+  bottom: 250px;
 }
 
 .info {
   left: 155px;
   bottom: 370px;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 14px;
+  font-stretch: expanded;
 }
-
+#descriptor {
+  font-family: "Uncial Antiqua", serif;
+  font-size: 16px;
+}
 .time,
 .city,
 .date {
@@ -146,23 +156,25 @@ body {
 }
 .time {
   position: absolute;
-  top: 120px;
-  right: 75px;
+  top: 150px;
+  right: 55px;
   font-size: 18px;
+  font-family: "Uncial Antiqua", serif;
 }
 
 .city {
   position: absolute;
-  top: 125px;
+  top: 170px;
   right: 55px;
-  font-size: 25px;
+  font-size: 20px;
+  font-family: "Uncial Antiqua", serif;
 }
 
 .date {
   position: absolute;
-  top: 225px;
+  top: 250px;
   right: 50px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 footer {
