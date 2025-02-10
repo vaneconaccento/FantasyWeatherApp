@@ -58,6 +58,59 @@ const weatherIcons = {
 
 //************************************************************************ */
 
+// Date and time update
+function updateDatTime() {
+  let now = new Date();
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+
+  let date = now.getDate();
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let month = months[now.getMonth()];
+
+  let year = now.getFullYear();
+  let hour = now.getHours();
+  let minutes = now.getMinutes();
+  //add 0 before min if under 10 min
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+
+  document.querySelector("#weekday").innerHTML = day;
+  document.querySelector("#month").innerHTML = month;
+  document.querySelector("#day").innerHTML = date;
+  document.querySelector("#year").innerHTML = year;
+  document.querySelector("#hour").innerHTML = hour;
+  document.querySelector("#min").innerHTML = minutes;
+}
+
+updateDatTime();
+// Update every minute (60000 milliseconds)
+setInterval(updateDatTime, 60000);
+
 // Function to convert city to proper case
 function toProperCase(str) {
   return str.replace(/\/\S*/g, function (txt) {
