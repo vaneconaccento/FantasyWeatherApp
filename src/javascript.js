@@ -99,12 +99,10 @@ function updateDatTime() {
     minutes = "0" + minutes;
   }
 
-  document.querySelector("#weekday").innerHTML = day;
-  document.querySelector("#month").innerHTML = month;
-  document.querySelector("#day").innerHTML = date;
-  document.querySelector("#year").innerHTML = year;
-  document.querySelector("#hour").innerHTML = hour;
-  document.querySelector("#min").innerHTML = minutes;
+  document.querySelector(
+    "#current-date"
+  ).innerHTML = `${day}, ${month} ${date}, ${year}`;
+  document.querySelector("#current-time").innerHTML = `${hour}:${minutes}`;
 }
 
 updateDatTime();
@@ -192,8 +190,8 @@ function weatherUpdate(response, cityInput) {
     // Update HTML with weather data
     weatherTemp.innerHTML = `${Math.round(values.temperature)}°`;
     weatherUnit.innerHTML = `C`;
-    weatherWindspeed.innerHTML = `${values.windSpeed} km/h`;
-    weatherHumidity.innerHTML = `${values.humidity}%`;
+    weatherWindspeed.innerHTML = `Windspeed: ${values.windSpeed} km/h`;
+    weatherHumidity.innerHTML = `Humidity: ${values.humidity}%`;
 
     // Get weather description using weatherCode from weatherCodes object
     let description =
