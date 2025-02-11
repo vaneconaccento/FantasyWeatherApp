@@ -99,10 +99,12 @@ function updateDatTime() {
     minutes = "0" + minutes;
   }
 
-  document.querySelector(
-    "#current-date"
-  ).innerHTML = `${day}, ${month} ${date}, ${year}`;
-  document.querySelector("#current-time").innerHTML = `${hour}:${minutes}`;
+  document.querySelector("#weekday").innerHTML = day;
+  document.querySelector("#month").innerHTML = month;
+  document.querySelector("#day").innerHTML = date;
+  document.querySelector("#year").innerHTML = year;
+  document.querySelector("#hour").innerHTML = hour;
+  document.querySelector("#min").innerHTML = minutes;
 }
 
 updateDatTime();
