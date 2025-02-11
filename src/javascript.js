@@ -179,6 +179,7 @@ function weatherUpdate(response, cityInput) {
   console.log("weatherCodes:", weatherCodes);
 
   let weatherTemp = document.querySelector("#temperature");
+  let weatherUnit = document.querySelector("#metric");
   let weatherWindspeed = document.querySelector("#wind");
   let weatherHumidity = document.querySelector("#humidity");
   let weatherDescription = document.querySelector("#descriptor");
@@ -190,6 +191,7 @@ function weatherUpdate(response, cityInput) {
 
     // Update HTML with weather data
     weatherTemp.innerHTML = `${Math.round(values.temperature)}°`;
+    weatherUnit.innerHTML = `C`;
     weatherWindspeed.innerHTML = `${values.windSpeed} km/h`;
     weatherHumidity.innerHTML = `${values.humidity}%`;
 
